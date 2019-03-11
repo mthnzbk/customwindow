@@ -17,7 +17,7 @@ class WindowTitleBar(QWidget):
         self.layout().setContentsMargins(0, 0, 0, 0)
         self.setMouseTracking(True)
         self.setStyleSheet("""QToolButton {border: none; background-color: #222222; color: white}
-         QWidget {background-color: #33333}""")
+         QWidget {background-color: #333333}""")
 
         self._titleIcon = QLabel()
         self._titleIcon.setPixmap(QPixmap())
@@ -91,6 +91,9 @@ class Window(QWidget):
         self.resize(640, 480)
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.centerOnScreen()
+        #self.setAttribute(Qt.WA_TranslucentBackground)
+        self.setObjectName("window")
+        self.setStyleSheet("#window {background-color: white; border-radius: 6px; border: 1px")
 
         self._sizeGrip = QSizeGrip(self)
 
